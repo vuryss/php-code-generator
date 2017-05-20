@@ -49,7 +49,7 @@ class CodeFileGenerator extends CodeGenerator {
 	 * {@inheritDoc}
 	 */
 	public function generate(GenerateableInterface $model) {
-		$content = "<?php\n";
+		$content = "<?php\n\n";
 
 		$comment = $this->config->getHeaderComment();
 		if ($comment !== null && !$comment->isEmpty()) {

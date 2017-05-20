@@ -1,4 +1,5 @@
 <?php
+
 /*
  * hui buuh
  */
@@ -7,5 +8,6 @@
  */
 /**
  */
-class Dummy {
+class Dummy
+{
 }

@@ -16,7 +16,7 @@ class ClassGeneratorTest extends \PHPUnit_Framework_TestCase {
 	use TestUtils;
 
 	public function testSignature() {
-		$expected = 'class MyClass {' . "\n" . '}';
+		$expected = "class MyClass\n{\n}";
 
 		$class = PhpClass::create('MyClass');
 		$generator = new ModelGenerator();
@@ -26,7 +26,7 @@ class ClassGeneratorTest extends \PHPUnit_Framework_TestCase {
 	}
 	
 	public function testAbstract() {
-		$expected = 'abstract class MyClass {' . "\n" . '}';
+		$expected = "abstract class MyClass\n{\n}";
 	
 		$class = PhpClass::create('MyClass')->setAbstract(true);
 		$generator = new ModelGenerator();
@@ -36,7 +36,7 @@ class ClassGeneratorTest extends \PHPUnit_Framework_TestCase {
 	}
 	
 	public function testFinal() {
-		$expected = 'final class MyClass {' . "\n" . '}';
+		$expected = "final class MyClass\n{\n}";
 	
 		$class = PhpClass::create('MyClass')->setFinal(true);
 		$generator = new ModelGenerator();
@@ -48,17 +48,17 @@ class ClassGeneratorTest extends \PHPUnit_Framework_TestCase {
 	public function testInterfaces() {
 		$generator = new ModelGenerator();
 	
-		$expected = 'class MyClass implements \Iterator {' . "\n" . '}';
+		$expected = "class MyClass implements \Iterator\n{\n}";
 		$class = PhpClass::create('MyClass')->addInterface('\Iterator');
 		$this->assertEquals($expected, $generator->generate($class));
 	
-		$expected = 'class MyClass implements \Iterator, \ArrayAccess {' . "\n" . '}';
+		$expected = "class MyClass implements \Iterator, \ArrayAccess\n{\n}";
 		$class = PhpClass::create('MyClass')->addInterface('\Iterator')->addInterface('\ArrayAccess');
 		$this->assertEquals($expected, $generator->generate($class));
 	}
 
 	public function testParent() {
-		$expected = 'class MyClass extends MyParent {' . "\n" . '}';
+		$expected = "class MyClass extends MyParent\n{\n}";
 	
 		$class = PhpClass::create('MyClass')->setParentClassName('MyParent');
 		$generator = new ModelGenerator();
@@ -89,7 +89,7 @@ class ClassGeneratorTest extends \PHPUnit_Framework_TestCase {
 		
 		$generator = new ModelGenerator();
 		$code = $generator->generate($class);
-		$expected = 'class Foo {' . "\n" . '}';
+		$expected = "class Foo\n{\n}";
 		
 		$this->assertEquals($expected, $code);
 	}

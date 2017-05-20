@@ -22,7 +22,7 @@ class ClassBuilder extends AbstractBuilder {
 		$this->buildSignature($model);
 		
 		// body
-		$this->writer->writeln(" {\n")->indent();
+		$this->writer->writeln("\n{")->indent();
 		$this->buildTraits($model);
 		$this->buildConstants($model);
 		$this->buildProperties($model);
